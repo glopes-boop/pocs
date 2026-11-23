@@ -241,4 +241,4 @@ Links:
 
 ## Licença
 
-MIT, veja [LICENSE](LICENSE). O Cosmos Semantic mantém a própria licença (Apache-2.0).
+MIT, veja [LICENSE](../LICENSE). O Cosmos Semantic mantém a própria licença (Apache-2.0).
