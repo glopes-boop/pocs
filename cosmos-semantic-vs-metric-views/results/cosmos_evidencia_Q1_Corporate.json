@@ -1,0 +1,143 @@
+{
+  "query_id": "q_ee64121f83f94035afe9",
+  "generated_at": "2026-11-23T15:02:36+00:00",
+  "engine_version": "0.5.0",
+  "model_hash": "9481eb99fa17dcda9899752499e3e3ba071f2b396b05e6d2054c580dd6ababea",
+  "as_of": "2026-10-31",
+  "rules_as_of": "2026-10-31",
+  "timezone": "America/Sao_Paulo",
+  "data_source": {
+    "name": "local",
+    "dialect": "duckdb"
+  },
+  "request": {
+    "metrics": [
+      "active_customers"
+    ],
+    "as_of": "2026-10-31"
+  },
+  "principal": {
+    "subject": null,
+    "channel": "cli",
+    "user_context": {
+      "carteira": "Corporate"
+    }
+  },
+  "metrics": [
+    {
+      "name": "active_customers",
+      "type": "simple",
+      "description": "Clientes com pedido pago nos últimos 90 dias até a data de referência",
+      "formula": "COUNT(DISTINCT orders.customer_id) WHERE {rule.paid_order} AND {rule.active_window}",
+      "measures": [
+        {
+          "name": "buyers",
+          "model": "orders",
+          "table": "poc.orders",
+          "agg": "count_distinct",
+          "expr": "customer_id"
+        }
+      ],
+      "concepts": [
+        "active_customer"
+      ],
+      "time": null
+    }
+  ],
+  "dimensions": [],
+  "rules": [
+    {
+      "name": "active_window",
+      "kind": "predicate",
+      "used_as": [
+        "filter"
+      ],
+      "owner": "dados-comercial",
+      "effective_from": "2026-01-01",
+      "current_version": true,
+      "versions": 1,
+      "logic": "{purchase_date} > CURRENT_DATE - INTERVAL '90' DAY",
+      "tests": {
+        "status": "passed",
+        "passed": 2,
+        "total": 2
+      },
+      "concepts": []
+    },
+    {
+      "name": "paid_order",
+      "kind": "predicate",
+      "used_as": [
+        "filter"
+      ],
+      "owner": "controladoria",
+      "effective_from": "2026-01-01",
+      "current_version": true,
+      "versions": 1,
+      "logic": "{status} IN ('paid', 'refunded')",
+      "tests": {
+        "status": "passed",
+        "passed": 4,
+        "total": 4
+      },
+      "concepts": []
+    }
+  ],
+  "metric_filters": [],
+  "policies": {
+    "row_filters": [
+      {
+        "model": "orders",
+        "name": "por_carteira",
+        "filter": "{customers.carteira} = $user.carteira",
+        "user_fields": {
+          "carteira": "Corporate"
+        },
+        "applied_in": [
+          "orders_agg"
+        ]
+      },
+      {
+        "model": "customers",
+        "name": "por_carteira",
+        "filter": "{carteira} = $user.carteira",
+        "user_fields": {
+          "carteira": "Corporate"
+        },
+        "applied_in": [
+          "orders_agg"
+        ]
+      }
+    ],
+    "sensitive_data_blocked_for_agents": false
+  },
+  "lineage": {
+    "models": [
+      "customers",
+      "orders"
+    ],
+    "joins": [
+      {
+        "from": "orders",
+        "to": "customers",
+        "entity": "customer",
+        "in": "orders_agg"
+      }
+    ],
+    "one_to_many": []
+  },
+  "sql": {
+    "text": "WITH orders_agg AS (\n  SELECT\n    COUNT(\n      DISTINCT CASE\n        WHEN (\n          (\n            orders.status\n          ) IN ('paid', 'refunded')\n        )\n        AND (\n          (\n            orders.ordered_at\n          ) > CAST('2026-10-31' AS DATE) + INTERVAL (-90) DAY\n        )\n        THEN orders.customer_id\n      END\n    ) AS buyers__f0\n  FROM poc.orders AS orders\n  LEFT JOIN poc.customers AS customers\n    ON orders.customer_id = customers.customer_id\n  WHERE\n    customers.carteira = 'Corporate' AND customers.carteira = 'Corporate'\n)\nSELECT\n  orders_agg.buyers__f0 AS active_customers\nFROM orders_agg",
+    "hash": "455cc2aba2fbff2a1d0806b21924afffb26a4106e0a681ed5691c5a29e139e34"
+  },
+  "result": {
+    "row_count": 1,
+    "columns": [
+      "active_customers"
+    ],
+    "hash": "03f30fbdb2a747aad049b6d84d7757aba2b65e7e7e2e930f88f19a1b4eb1fe8d"
+  },
+  "caveats": [
+    "Replaying this query with the same model hash and as_of returns the same result only if the source data has not changed."
+  ]
+}

@@ -1,0 +1,8 @@
+# Python 3.12. Versões fixadas: o sql_hash depende do SQL gerado pelo sqlglot.
+cosmos-semantic[duckdb] @ git+https://github.com/WiliamRosa/cosmos-semantic-platform@12e458fb5f3788361926b805b4bb3b43bda64beb
+sqlglot==30.24.0
+duckdb==2.0.0
+pyarrow==26.0.0
+pydantic==2.14.1
+pyyaml==6.0.3
+typer==0.27.3

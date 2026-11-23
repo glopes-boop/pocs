@@ -1,0 +1,5 @@
+data_changed: Same model and SQL; the source data changed.
+  model_hash   same  9481eb99fa17dcda -> 9481eb99fa17dcda
+  sql_hash     same  8e722ed5edbaae4a -> 8e722ed5edbaae4a
+  result_hash  differs  eb086f1bbce65280 -> cd5f534378d056cd
+  row_count    same  12 -> 12

@@ -1,0 +1,7 @@
+{
+  "name": "cosmos-vs-metric-views-diagram",
+  "private": true,
+  "description": "Renderiza docs/diagrama.excalidraw em PNG (node render.mjs ../docs/diagrama.excalidraw ../docs/diagrama.png)",
+  "type": "module",
+  "dependencies": { "puppeteer-core": "^22" }
+}

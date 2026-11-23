@@ -1,0 +1,5 @@
+default: local
+data_sources:
+  local:
+    type: duckdb
+    path: ${COSMOS_DUCKDB_PATH:-../data/vendas.duckdb}

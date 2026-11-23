@@ -1,0 +1,141 @@
+version: 1
+timezone: America/Sao_Paulo
+
+user_context:
+  carteira:
+    claim: carteira
+    required: true
+    description: Carteira (segmento comercial) que o usuário pode ver
+
+semantic_models:
+  - name: customers
+    table: poc.customers
+    owner: dados-comercial
+    description: Clientes empresariais (B2B), uma linha por cliente
+    entities:
+      - name: customer
+        type: primary
+        expr: customer_id
+    dimensions:
+      - name: carteira
+        type: categorical
+        description: Varejo, Middle ou Corporate
+      - name: region
+        type: categorical
+      - name: cnpj
+        type: categorical
+        sensitivity: personal
+    row_filters:
+      - name: por_carteira
+        filter: "{carteira} = $user.carteira"
+
+  - name: orders
+    table: poc.orders
+    owner: dados-comercial
+    description: Pedidos, um por linha
+    entities:
+      - name: order
+        type: primary
+        expr: order_id
+      - name: customer
+        type: foreign
+        expr: customer_id
+    dimensions:
+      - name: ordered_at
+        type: time
+        description: Data do pedido
+      - name: status
+        type: categorical
+        description: paid, refunded, pending ou canceled
+    measures:
+      - name: order_count
+        agg: count
+      - name: buyers
+        agg: count_distinct
+        expr: customer_id
+    row_filters:
+      - name: por_carteira
+        filter: "{customers.carteira} = $user.carteira"
+
+  - name: order_items
+    table: poc.order_items
+    owner: dados-comercial
+    description: Itens de pedido
+    entities:
+      - name: order_item
+        type: primary
+        expr: order_item_id
+      - name: order
+        type: foreign
+        expr: order_id
+    measures:
+      - name: item_total
+        agg: sum
+        expr: quantity * unit_price
+    row_filters:
+      - name: por_carteira
+        filter: "{customers.carteira} = $user.carteira"
+
+  - name: refunds
+    table: poc.refunds
+    owner: controladoria
+    description: Reembolsos (requested, rejected ou completed)
+    entities:
+      - name: refund
+        type: primary
+        expr: refund_id
+      - name: order
+        type: foreign
+        expr: order_id
+    dimensions:
+      - name: refund_status
+        type: categorical
+        expr: status
+    measures:
+      - name: refund_value
+        agg: sum
+        expr: amount
+    row_filters:
+      - name: por_carteira
+        filter: "{customers.carteira} = $user.carteira"
+
+metrics:
+  - name: gross_revenue
+    type: simple
+    owner: controladoria
+    measure: item_total
+    filter: "{rule.paid_order}"
+    description: Receita bruta, soma dos itens de pedidos pagos (paid ou refunded), na data do pedido
+  - name: refunds_completed
+    type: simple
+    owner: controladoria
+    measure: refund_value
+    filter: "{rule.refund_completed}"
+    description: Reembolsos efetivados, atribuídos à data do pedido original
+  - name: net_revenue
+    type: derived
+    owner: controladoria
+    expr: "{gross_revenue} - COALESCE({refunds_completed}, 0)"
+    description: Receita líquida = bruta menos reembolsos efetivados (na data do pedido original)
+  - name: paid_orders
+    type: simple
+    owner: controladoria
+    measure: order_count
+    filter: "{rule.paid_order}"
+    description: Pedidos pagos (paid ou refunded)
+  - name: average_order_value
+    type: derived
+    owner: controladoria
+    expr: "{gross_revenue} / {paid_orders}"
+    description: Ticket médio = receita bruta / pedidos pagos
+  - name: refund_rate
+    type: derived
+    owner: controladoria
+    expr: "{refunds_completed} / {gross_revenue}"
+    description: Taxa de reembolso = reembolsos efetivados / receita bruta
+  - name: active_customers
+    type: simple
+    owner: dados-comercial
+    measure: buyers
+    filter: "{rule.paid_order} AND {rule.active_window}"
+    description: Clientes com pedido pago nos últimos 90 dias até a data de referência

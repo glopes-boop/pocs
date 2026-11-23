@@ -1,0 +1,71 @@
+version: 1
+glossary:
+  - concept: gross_revenue
+    pref_label: { pt: Receita bruta, en: Gross revenue }
+    alt_labels: { pt: [faturamento bruto, vendas] }
+    definition: Soma dos itens de pedidos pagos, antes de reembolsos
+    maps_to: metric:gross_revenue
+  - concept: net_revenue
+    pref_label: { pt: Receita líquida, en: Net revenue }
+    alt_labels: { pt: [faturamento líquido, faturamento, receita] }
+    broader: gross_revenue
+    definition: Receita bruta menos reembolsos efetivados, na data do pedido original
+    maps_to: metric:net_revenue
+  - concept: average_order_value
+    pref_label: { pt: Ticket médio, en: Average order value }
+    alt_labels: { pt: [valor médio do pedido] }
+    definition: Receita bruta dividida pelo número de pedidos pagos
+    maps_to: metric:average_order_value
+  - concept: active_customer
+    pref_label: { pt: Cliente ativo, en: Active customer }
+    alt_labels: { pt: [clientes ativos] }
+    definition: Cliente com pedido pago nos últimos 90 dias
+    maps_to: metric:active_customers
+  - concept: carteira
+    pref_label: { pt: Carteira, en: Portfolio }
+    alt_labels: { pt: [segmento, segmento comercial] }
+    definition: Segmento comercial do cliente
+    maps_to: dimension:customers.carteira
+
+business_rules:
+  - name: paid_order
+    kind: predicate
+    owner: controladoria
+    effective_from: 2026-01-01
+    description: Pedido pago (paid) ou pago e depois reembolsado (refunded)
+    inputs: { status: categorical }
+    logic: "{status} IN ('paid', 'refunded')"
+    applies_to:
+      - model: orders
+        bind: { status: status }
+    tests:
+      - { given: { status: paid }, expect: true }
+      - { given: { status: refunded }, expect: true }
+      - { given: { status: pending }, expect: false }
+      - { given: { status: canceled }, expect: false }
+  - name: refund_completed
+    kind: predicate
+    owner: controladoria
+    effective_from: 2026-01-01
+    description: Reembolso efetivado (completed); requested e rejected não contam
+    inputs: { status: categorical }
+    logic: "{status} = 'completed'"
+    applies_to:
+      - model: refunds
+        bind: { status: refund_status }
+    tests:
+      - { given: { status: completed }, expect: true }
+      - { given: { status: requested }, expect: false }
+  - name: active_window
+    kind: predicate
+    owner: dados-comercial
+    effective_from: 2026-01-01
+    description: Pedido nos últimos 90 dias até a data de referência (inclusive)
+    inputs: { purchase_date: time }
+    logic: "{purchase_date} > CURRENT_DATE - INTERVAL '90' DAY"
+    applies_to:
+      - model: orders
+        bind: { purchase_date: ordered_at }
+    tests:
+      - { given: { purchase_date: 2026-10-01 }, today: 2026-10-31, expect: true }
+      - { given: { purchase_date: 2026-08-02 }, today: 2026-10-31, expect: false }

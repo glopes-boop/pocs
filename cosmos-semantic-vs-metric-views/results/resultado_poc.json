@@ -1,0 +1,1122 @@
+{
+  "as_of": "2026-10-31",
+  "runs": {
+    "Q1_clientes_ativos|Varejo": {
+      "stable": true,
+      "sql_hash": "a02245200ffbd69e90229a5708bf2886d4c78e44021774058174a94bfed9dee8",
+      "result_hash": "811c2c8d8a948b78ef0af2499f58ceafc805f5ea98ae07b7414ec15131f3f20a",
+      "model_hash": "9481eb99fa17dcda9899752499e3e3ba071f2b396b05e6d2054c580dd6ababea",
+      "query_ids": [
+        "q_6855601d34e84a9e97ba",
+        "q_d6c127d6e5d147fd9f8e",
+        "q_b95ee0d102ad44a69fdc"
+      ],
+      "rows": [
+        {
+          "active_customers": 286
+        }
+      ]
+    },
+    "Q1_clientes_ativos|Middle": {
+      "stable": true,
+      "sql_hash": "b211ead9a7d797d2da0ed836665ef8f9943ff04cf1d5be5235508d9f80d69c65",
+      "result_hash": "e2c484f41e9c5ad6634ea4e4d728dcc266a0597c7891b0a9d93610ea1584857c",
+      "model_hash": "9481eb99fa17dcda9899752499e3e3ba071f2b396b05e6d2054c580dd6ababea",
+      "query_ids": [
+        "q_edad1f3fcbb7422badb2",
+        "q_23de583d96884df9b2e6",
+        "q_5c1dd3c9d2fc495a9363"
+      ],
+      "rows": [
+        {
+          "active_customers": 162
+        }
+      ]
+    },
+    "Q1_clientes_ativos|Corporate": {
+      "stable": true,
+      "sql_hash": "455cc2aba2fbff2a1d0806b21924afffb26a4106e0a681ed5691c5a29e139e34",
+      "result_hash": "03f30fbdb2a747aad049b6d84d7757aba2b65e7e7e2e930f88f19a1b4eb1fe8d",
+      "model_hash": "9481eb99fa17dcda9899752499e3e3ba071f2b396b05e6d2054c580dd6ababea",
+      "query_ids": [
+        "q_47467383888e4c269735",
+        "q_8a59d6ea84444732acf2",
+        "q_ee64121f83f94035afe9"
+      ],
+      "rows": [
+        {
+          "active_customers": 79
+        }
+      ]
+    },
+    "Q2_receitas_por_mes|Varejo": {
+      "stable": true,
+      "sql_hash": "8e722ed5edbaae4a37944da8b8be0b84498b12e0049176fd4bd4f7df592d34be",
+      "result_hash": "eb086f1bbce65280a1d760da3322caec7fc0dddd5afe6f632d95e094831fc32a",
+      "model_hash": "9481eb99fa17dcda9899752499e3e3ba071f2b396b05e6d2054c580dd6ababea",
+      "query_ids": [
+        "q_add8f5a70b94483881d5",
+        "q_b64811fa5c38469ab6fe",
+        "q_bd5a5ea81d914f908bc9"
+      ],
+      "rows": [
+        {
+          "orders__ordered_at__month": "2025-12-01T00:00:00",
+          "gross_revenue": 825811.76,
+          "refunds_completed": 53353.78,
+          "net_revenue": 772457.98,
+          "average_order_value": 3440.8823333333335,
+          "refund_rate": 0.06460767766252203
+        },
+        {
+          "orders__ordered_at__month": "2026-07-01T00:00:00",
+          "gross_revenue": 785654.03,
+          "refunds_completed": 60225.53,
+          "net_revenue": 725428.5,
+          "average_order_value": 3637.287175925926,
+          "refund_rate": 0.0766565532668368
+        },
+        {
+          "orders__ordered_at__month": "2026-05-01T00:00:00",
+          "gross_revenue": 651268.87,
+          "refunds_completed": 39485.54,
+          "net_revenue": 611783.33,
+          "average_order_value": 3464.1961170212767,
+          "refund_rate": 0.06062863099843848
+        },
+        {
+          "orders__ordered_at__month": "2026-04-01T00:00:00",
+          "gross_revenue": 778029.8,
+          "refunds_completed": 35971.25,
+          "net_revenue": 742058.55,
+          "average_order_value": 3704.9038095238097,
+          "refund_rate": 0.046233768937899294
+        },
+        {
+          "orders__ordered_at__month": "2026-09-01T00:00:00",
+          "gross_revenue": 635462.19,
+          "refunds_completed": 78294.12,
+          "net_revenue": 557168.07,
+          "average_order_value": 3258.780461538461,
+          "refund_rate": 0.12320814870197076
+        },
+        {
+          "orders__ordered_at__month": "2026-02-01T00:00:00",
+          "gross_revenue": 718342.46,
+          "refunds_completed": 35783.54,
+          "net_revenue": 682558.92,
+          "average_order_value": 3295.1488990825687,
+          "refund_rate": 0.04981403994969197
+        },
+        {
+          "orders__ordered_at__month": "2025-11-01T00:00:00",
+          "gross_revenue": 659924.44,
+          "refunds_completed": 63892.97,
+          "net_revenue": 596031.47,
+          "average_order_value": 3567.159135135135,
+          "refund_rate": 0.09681861456744958
+        },
+        {
+          "orders__ordered_at__month": "2026-03-01T00:00:00",
+          "gross_revenue": 734303.57,
+          "refunds_completed": 52687.47,
+          "net_revenue": 681616.1,
+          "average_order_value": 3368.365,
+          "refund_rate": 0.07175161902045499
+        },
+        {
+          "orders__ordered_at__month": "2026-06-01T00:00:00",
+          "gross_revenue": 854780.21,
+          "refunds_completed": 57804.02,
+          "net_revenue": 796976.19,
+          "average_order_value": 3749.0360087719296,
+          "refund_rate": 0.06762442476294579
+        },
+        {
+          "orders__ordered_at__month": "2026-10-01T00:00:00",
+          "gross_revenue": 795202.63,
+          "refunds_completed": 37315.35,
+          "net_revenue": 757887.28,
+          "average_order_value": 3581.993828828829,
+          "refund_rate": 0.04692558675264945
+        },
+        {
+          "orders__ordered_at__month": "2026-08-01T00:00:00",
+          "gross_revenue": 748756.16,
+          "refunds_completed": 59717.15,
+          "net_revenue": 689039.01,
+          "average_order_value": 3498.860560747664,
+          "refund_rate": 0.07975513683920811
+        },
+        {
+          "orders__ordered_at__month": "2026-01-01T00:00:00",
+          "gross_revenue": 605918.75,
+          "refunds_completed": 33079.76,
+          "net_revenue": 572838.99,
+          "average_order_value": 3205.919312169312,
+          "refund_rate": 0.05459438249765336
+        }
+      ]
+    },
+    "Q2_receitas_por_mes|Middle": {
+      "stable": true,
+      "sql_hash": "e6b32a7972ad34f12ff70a6912fad258f3b28a6260b836a52d36a73c52c30011",
+      "result_hash": "e83dee7a7cf2eef67bc3fc58058aace3448bc1a3b82ac327b6db510f81817e64",
+      "model_hash": "9481eb99fa17dcda9899752499e3e3ba071f2b396b05e6d2054c580dd6ababea",
+      "query_ids": [
+        "q_11b434b528bb45a0921a",
+        "q_52ede76dedc249bd9d96",
+        "q_a23684d3c6b24e9a8c2b"
+      ],
+      "rows": [
+        {
+          "orders__ordered_at__month": "2026-07-01T00:00:00",
+          "gross_revenue": 1668110.55,
+          "refunds_completed": 172970.56,
+          "net_revenue": 1495139.99,
+          "average_order_value": 11271.01722972973,
+          "refund_rate": 0.10369250407294647
+        },
+        {
+          "orders__ordered_at__month": "2026-05-01T00:00:00",
+          "gross_revenue": 1391664.14,
+          "refunds_completed": 65492.61,
+          "net_revenue": 1326171.53,
+          "average_order_value": 11997.104655172412,
+          "refund_rate": 0.04706064352567136
+        },
+        {
+          "orders__ordered_at__month": "2025-12-01T00:00:00",
+          "gross_revenue": 1363414.7,
+          "refunds_completed": 140648.81,
+          "net_revenue": 1222765.89,
+          "average_order_value": 11959.778070175438,
+          "refund_rate": 0.10315922954329303
+        },
+        {
+          "orders__ordered_at__month": "2025-11-01T00:00:00",
+          "gross_revenue": 1017018.75,
+          "refunds_completed": 26449.49,
+          "net_revenue": 990569.26,
+          "average_order_value": 9000.16592920354,
+          "refund_rate": 0.02600688532045255
+        },
+        {
+          "orders__ordered_at__month": "2026-02-01T00:00:00",
+          "gross_revenue": 1359607.0,
+          "refunds_completed": 107129.95,
+          "net_revenue": 1252477.05,
+          "average_order_value": 10146.320895522387,
+          "refund_rate": 0.07879479143605468
+        },
+        {
+          "orders__ordered_at__month": "2026-09-01T00:00:00",
+          "gross_revenue": 1271899.15,
+          "refunds_completed": 53757.5,
+          "net_revenue": 1218141.65,
+          "average_order_value": 11255.744690265486,
+          "refund_rate": 0.04226553654037744
+        },
+        {
+          "orders__ordered_at__month": "2026-04-01T00:00:00",
+          "gross_revenue": 1322448.72,
+          "refunds_completed": 39995.01,
+          "net_revenue": 1282453.71,
+          "average_order_value": 10929.328264462809,
+          "refund_rate": 0.03024314621439537
+        },
+        {
+          "orders__ordered_at__month": "2026-06-01T00:00:00",
+          "gross_revenue": 1532731.42,
+          "refunds_completed": 157024.45,
+          "net_revenue": 1375706.97,
+          "average_order_value": 10570.561517241378,
+          "refund_rate": 0.10244746597548057
+        },
+        {
+          "orders__ordered_at__month": "2026-03-01T00:00:00",
+          "gross_revenue": 1227965.53,
+          "refunds_completed": 45444.15,
+          "net_revenue": 1182521.38,
+          "average_order_value": 10148.475454545454,
+          "refund_rate": 0.03700767561447755
+        },
+        {
+          "orders__ordered_at__month": "2026-10-01T00:00:00",
+          "gross_revenue": 1249008.77,
+          "refunds_completed": 41419.46,
+          "net_revenue": 1207589.31,
+          "average_order_value": 11252.33126126126,
+          "refund_rate": 0.03316186482821894
+        },
+        {
+          "orders__ordered_at__month": "2026-08-01T00:00:00",
+          "gross_revenue": 1366042.31,
+          "refunds_completed": 89983.19,
+          "net_revenue": 1276059.12,
+          "average_order_value": 10756.238661417323,
+          "refund_rate": 0.06587145166828691
+        },
+        {
+          "orders__ordered_at__month": "2026-01-01T00:00:00",
+          "gross_revenue": 1307532.67,
+          "refunds_completed": 72053.16,
+          "net_revenue": 1235479.51,
+          "average_order_value": 11080.78533898305,
+          "refund_rate": 0.05510620243240271
+        }
+      ]
+    },
+    "Q2_receitas_por_mes|Corporate": {
+      "stable": true,
+      "sql_hash": "377cd9efe90fa442df8d833caca09d1b77ff72336d44ab8156d1c07705dbc90b",
+      "result_hash": "8ef7e7d1aae77d2d61a20311de27c81364835194a356ba802cf9c5b5d145122f",
+      "model_hash": "9481eb99fa17dcda9899752499e3e3ba071f2b396b05e6d2054c580dd6ababea",
+      "query_ids": [
+        "q_dbd36eeb412741adb5a2",
+        "q_d43e395d35eb49ebb872",
+        "q_2a60f610a71b4eca942a"
+      ],
+      "rows": [
+        {
+          "orders__ordered_at__month": "2026-05-01T00:00:00",
+          "gross_revenue": 1366608.65,
+          "refunds_completed": 136412.17,
+          "net_revenue": 1230196.48,
+          "average_order_value": 26796.248039215683,
+          "refund_rate": 0.09981802032352131
+        },
+        {
+          "orders__ordered_at__month": "2026-07-01T00:00:00",
+          "gross_revenue": 1119796.8,
+          "refunds_completed": 9482.25,
+          "net_revenue": 1110314.55,
+          "average_order_value": 27312.11707317073,
+          "refund_rate": 0.008467830949329378
+        },
+        {
+          "orders__ordered_at__month": "2025-12-01T00:00:00",
+          "gross_revenue": 1585060.16,
+          "refunds_completed": 86978.18,
+          "net_revenue": 1498081.98,
+          "average_order_value": 23657.614328358206,
+          "refund_rate": 0.05487374056515306
+        },
+        {
+          "orders__ordered_at__month": "2026-06-01T00:00:00",
+          "gross_revenue": 1666393.53,
+          "refunds_completed": 179522.39,
+          "net_revenue": 1486871.14,
+          "average_order_value": 26877.315,
+          "refund_rate": 0.10773108918635804
+        },
+        {
+          "orders__ordered_at__month": "2026-04-01T00:00:00",
+          "gross_revenue": 1378584.49,
+          "refunds_completed": 15573.7,
+          "net_revenue": 1363010.79,
+          "average_order_value": 29331.584893617022,
+          "refund_rate": 0.01129687742243495
+        },
+        {
+          "orders__ordered_at__month": "2025-11-01T00:00:00",
+          "gross_revenue": 1491449.74,
+          "refunds_completed": 103197.12,
+          "net_revenue": 1388252.62,
+          "average_order_value": 31732.97319148936,
+          "refund_rate": 0.06919248918170048
+        },
+        {
+          "orders__ordered_at__month": "2026-09-01T00:00:00",
+          "gross_revenue": 1684112.29,
+          "refunds_completed": 51428.54,
+          "net_revenue": 1632683.75,
+          "average_order_value": 26731.94111111111,
+          "refund_rate": 0.030537476809221552
+        },
+        {
+          "orders__ordered_at__month": "2026-02-01T00:00:00",
+          "gross_revenue": 1517370.37,
+          "refunds_completed": 46911.66,
+          "net_revenue": 1470458.71,
+          "average_order_value": 26620.532807017546,
+          "refund_rate": 0.030916420227712762
+        },
+        {
+          "orders__ordered_at__month": "2026-03-01T00:00:00",
+          "gross_revenue": 1523586.56,
+          "refunds_completed": 76566.35,
+          "net_revenue": 1447020.21,
+          "average_order_value": 24976.828852459017,
+          "refund_rate": 0.050254020355758454
+        },
+        {
+          "orders__ordered_at__month": "2026-10-01T00:00:00",
+          "gross_revenue": 2436539.69,
+          "refunds_completed": 243740.57,
+          "net_revenue": 2192799.12,
+          "average_order_value": 32487.195866666665,
+          "refund_rate": 0.1000355426182284
+        },
+        {
+          "orders__ordered_at__month": "2026-08-01T00:00:00",
+          "gross_revenue": 2167244.56,
+          "refunds_completed": 108241.92,
+          "net_revenue": 2059002.64,
+          "average_order_value": 31871.243529411764,
+          "refund_rate": 0.049944488036920025
+        },
+        {
+          "orders__ordered_at__month": "2026-01-01T00:00:00",
+          "gross_revenue": 2565611.31,
+          "refunds_completed": 160101.58,
+          "net_revenue": 2405509.73,
+          "average_order_value": 33758.04355263158,
+          "refund_rate": 0.06240289765482831
+        }
+      ]
+    },
+    "Q3_liquida_30_dias|Varejo": {
+      "stable": true,
+      "sql_hash": "1e398849f1f9d8ba88c2d1e71f4acc5af8663e11ef458310b5c33713d3256374",
+      "result_hash": "d20bc309d5f8e9198f01fd53968f12eaef2a20f5132929f63c23dfaa28ab8e0a",
+      "model_hash": "9481eb99fa17dcda9899752499e3e3ba071f2b396b05e6d2054c580dd6ababea",
+      "query_ids": [
+        "q_4bdd6630e17b469b9722",
+        "q_a7769228713f44b188c8",
+        "q_c5a70e4cf40c487f8fde"
+      ],
+      "rows": [
+        {
+          "net_revenue": 752750.99,
+          "gross_revenue": 790066.34
+        }
+      ]
+    },
+    "Q3_liquida_30_dias|Middle": {
+      "stable": true,
+      "sql_hash": "200d1174627a391f676ca3db6e7857799959b1211223c5e1d97d791a4ef84fa2",
+      "result_hash": "fc2181399e8a497834d6eb8f8498646b9e390ec7fe626213881e64d566b523a7",
+      "model_hash": "9481eb99fa17dcda9899752499e3e3ba071f2b396b05e6d2054c580dd6ababea",
+      "query_ids": [
+        "q_2c387d82ca5145e7b94a",
+        "q_4db62fa1196a47eab3a4",
+        "q_3a2ee82226b74c8b8a13"
+      ],
+      "rows": [
+        {
+          "net_revenue": 1207589.31,
+          "gross_revenue": 1249008.77
+        }
+      ]
+    },
+    "Q3_liquida_30_dias|Corporate": {
+      "stable": true,
+      "sql_hash": "2909662590c4b116a9b5165158adbab6931e2b30e9929ee167237c79133098ad",
+      "result_hash": "08e3ba14c5878315e436960213deb30bf3186d31fd75bb1c897937bf2bce730a",
+      "model_hash": "9481eb99fa17dcda9899752499e3e3ba071f2b396b05e6d2054c580dd6ababea",
+      "query_ids": [
+        "q_eb8f080faebc4d31927c",
+        "q_6100ca80c0694dda84ce",
+        "q_4e88904b22dd406a9fd7"
+      ],
+      "rows": [
+        {
+          "net_revenue": 2028140.9,
+          "gross_revenue": 2259217.15
+        }
+      ]
+    },
+    "Q4_ticket_por_regiao|Varejo": {
+      "stable": true,
+      "sql_hash": "d280737a5a4dcbd28eb8ebf472c391a33b2bba5d8641b9cb3c121e81ed548a2f",
+      "result_hash": "cb32da76a842569d83de29f9b410cad3abe4945d66af722bca17194908836cd2",
+      "model_hash": "9481eb99fa17dcda9899752499e3e3ba071f2b396b05e6d2054c580dd6ababea",
+      "query_ids": [
+        "q_9a020838ccd34676af27",
+        "q_b2773918b2fc4686a3e5",
+        "q_d4d30956840049b88465"
+      ],
+      "rows": [
+        {
+          "customers__region": "Sul",
+          "average_order_value": 3576.361755196305,
+          "refund_rate": 0.06893743873681632,
+          "paid_orders": 433
+        },
+        {
+          "customers__region": "Centro-Oeste",
+          "average_order_value": 3539.5238850174214,
+          "refund_rate": 0.056888820225634094,
+          "paid_orders": 574
+        },
+        {
+          "customers__region": "Sudeste",
+          "average_order_value": 3560.196578366446,
+          "refund_rate": 0.06674109972534505,
+          "paid_orders": 453
+        },
+        {
+          "customers__region": "Nordeste",
+          "average_order_value": 3458.476223776224,
+          "refund_rate": 0.06121711004543211,
+          "paid_orders": 572
+        },
+        {
+          "customers__region": "Norte",
+          "average_order_value": 3303.841283095723,
+          "refund_rate": 0.09649664295292587,
+          "paid_orders": 491
+        }
+      ]
+    },
+    "Q4_ticket_por_regiao|Middle": {
+      "stable": true,
+      "sql_hash": "f5b4835bb52ae2dafc744a98259c7069b322f26bf9bf628a9cf9cc8249ba52be",
+      "result_hash": "5e2021c3478f0d9b54df7e3c96c067daadd21a0547bf5cdd6c06409e17c55125",
+      "model_hash": "9481eb99fa17dcda9899752499e3e3ba071f2b396b05e6d2054c580dd6ababea",
+      "query_ids": [
+        "q_d4009a74cf194118ada3",
+        "q_bbc9b1f535ce449e96e9",
+        "q_1cb65050bdb54d1ea8b3"
+      ],
+      "rows": [
+        {
+          "customers__region": "Nordeste",
+          "average_order_value": 10894.717287449392,
+          "refund_rate": 0.0709350362750744,
+          "paid_orders": 247
+        },
+        {
+          "customers__region": "Norte",
+          "average_order_value": 11025.597044673541,
+          "refund_rate": 0.06323767541319672,
+          "paid_orders": 291
+        },
+        {
+          "customers__region": "Sul",
+          "average_order_value": 10608.957231182796,
+          "refund_rate": 0.06818191360506586,
+          "paid_orders": 372
+        },
+        {
+          "customers__region": "Centro-Oeste",
+          "average_order_value": 10850.205347826088,
+          "refund_rate": 0.08095449269457425,
+          "paid_orders": 230
+        },
+        {
+          "customers__region": "Sudeste",
+          "average_order_value": 10955.77853372434,
+          "refund_rate": 0.039476158764492765,
+          "paid_orders": 341
+        }
+      ]
+    },
+    "Q4_ticket_por_regiao|Corporate": {
+      "stable": true,
+      "sql_hash": "7b78a1144c2f1b8ff9ea15a16d0bfaa361ca523f06d8aee6f7330fe7657c755d",
+      "result_hash": "ec80dcb7ffe3de418e4fee7fc8eabb80692b37e67f2f7960bd030ae58742f801",
+      "model_hash": "9481eb99fa17dcda9899752499e3e3ba071f2b396b05e6d2054c580dd6ababea",
+      "query_ids": [
+        "q_9ccb71722d404cd49202",
+        "q_f7c52b2f876e47a785dd",
+        "q_53288549b4ac45e1a556"
+      ],
+      "rows": [
+        {
+          "customers__region": "Centro-Oeste",
+          "average_order_value": 28584.859375,
+          "refund_rate": 0.05137776062611818,
+          "paid_orders": 160
+        },
+        {
+          "customers__region": "Sudeste",
+          "average_order_value": 26978.048020833332,
+          "refund_rate": 0.08068154609700208,
+          "paid_orders": 96
+        },
+        {
+          "customers__region": "Sul",
+          "average_order_value": 29500.971161290323,
+          "refund_rate": 0.0578800103492711,
+          "paid_orders": 155
+        },
+        {
+          "customers__region": "Norte",
+          "average_order_value": 29032.96282352941,
+          "refund_rate": 0.07544174211329707,
+          "paid_orders": 170
+        },
+        {
+          "customers__region": "Nordeste",
+          "average_order_value": 28586.819626865672,
+          "refund_rate": 0.03581760254020416,
+          "paid_orders": 134
+        }
+      ]
+    },
+    "Q5_liquida_por_dia_7d|Varejo": {
+      "stable": true,
+      "sql_hash": "3b1ec180b9861e0ddd7703e741c18624e49c4d8bb7c34892194e449f81dd97fe",
+      "result_hash": "5764634a1796662f92e2ec9bf0aff4ad220de4e93a5f0d05f0ddeb7afba72d4c",
+      "model_hash": "9481eb99fa17dcda9899752499e3e3ba071f2b396b05e6d2054c580dd6ababea",
+      "query_ids": [
+        "q_232a27a9b8804d309f2b",
+        "q_1a16e1ec33ed414c94ac",
+        "q_1c4e9043998640668ccb"
+      ],
+      "rows": [
+        {
+          "orders__ordered_at__day": "2026-10-27T00:00:00",
+          "gross_revenue": 12117.6,
+          "net_revenue": 12117.6
+        },
+        {
+          "orders__ordered_at__day": "2026-10-26T00:00:00",
+          "gross_revenue": 20806.39,
+          "net_revenue": 20806.39
+        },
+        {
+          "orders__ordered_at__day": "2026-10-28T00:00:00",
+          "gross_revenue": 24959.59,
+          "net_revenue": 23087.28
+        },
+        {
+          "orders__ordered_at__day": "2026-10-25T00:00:00",
+          "gross_revenue": 12440.01,
+          "net_revenue": 12440.01
+        },
+        {
+          "orders__ordered_at__day": "2026-10-30T00:00:00",
+          "gross_revenue": 7578.53,
+          "net_revenue": 7578.53
+        },
+        {
+          "orders__ordered_at__day": "2026-10-29T00:00:00",
+          "gross_revenue": 12764.64,
+          "net_revenue": 12764.64
+        },
+        {
+          "orders__ordered_at__day": "2026-10-31T00:00:00",
+          "gross_revenue": 21985.86,
+          "net_revenue": 21985.86
+        }
+      ]
+    },
+    "Q5_liquida_por_dia_7d|Middle": {
+      "stable": true,
+      "sql_hash": "a4c9e2e42803ca1e597e128c6cf6ad8d2b54ccde886a2b497f2d41ba3fdd7709",
+      "result_hash": "b448b9ed6db18605b535495ac6e5d313f39264c045d1979fd99f056d23b14f81",
+      "model_hash": "9481eb99fa17dcda9899752499e3e3ba071f2b396b05e6d2054c580dd6ababea",
+      "query_ids": [
+        "q_baabc9750794402695bf",
+        "q_835cb9a805354e099c13",
+        "q_699e14758bca46f1bc33"
+      ],
+      "rows": [
+        {
+          "orders__ordered_at__day": "2026-10-28T00:00:00",
+          "gross_revenue": 27516.03,
+          "net_revenue": 27516.03
+        },
+        {
+          "orders__ordered_at__day": "2026-10-26T00:00:00",
+          "gross_revenue": 74684.28,
+          "net_revenue": 74684.28
+        },
+        {
+          "orders__ordered_at__day": "2026-10-27T00:00:00",
+          "gross_revenue": 75366.93,
+          "net_revenue": 75366.93
+        },
+        {
+          "orders__ordered_at__day": "2026-10-25T00:00:00",
+          "gross_revenue": 66285.2,
+          "net_revenue": 61485.2
+        },
+        {
+          "orders__ordered_at__day": "2026-10-30T00:00:00",
+          "gross_revenue": 26346.69,
+          "net_revenue": 26346.69
+        },
+        {
+          "orders__ordered_at__day": "2026-10-31T00:00:00",
+          "gross_revenue": 2839.42,
+          "net_revenue": 2839.42
+        },
+        {
+          "orders__ordered_at__day": "2026-10-29T00:00:00",
+          "gross_revenue": null,
+          "net_revenue": null
+        }
+      ]
+    },
+    "Q5_liquida_por_dia_7d|Corporate": {
+      "stable": true,
+      "sql_hash": "4b2572bd35de434ad4c59ac35b80ce8d53b23e385b342da0f2c5480a94be4816",
+      "result_hash": "89c8eafe4593c72ced2e2060fbbc8bfb73d8490ffa1c29181b20bb59fe40057e",
+      "model_hash": "9481eb99fa17dcda9899752499e3e3ba071f2b396b05e6d2054c580dd6ababea",
+      "query_ids": [
+        "q_b69be663cd8743f1b70f",
+        "q_aa01473dff444432ad6b",
+        "q_8fbe44aa397d43adb2b1"
+      ],
+      "rows": [
+        {
+          "orders__ordered_at__day": "2026-10-31T00:00:00",
+          "gross_revenue": 205101.32,
+          "net_revenue": 169402.08
+        },
+        {
+          "orders__ordered_at__day": "2026-10-29T00:00:00",
+          "gross_revenue": 53911.71,
+          "net_revenue": 53911.71
+        },
+        {
+          "orders__ordered_at__day": "2026-10-28T00:00:00",
+          "gross_revenue": 93908.6,
+          "net_revenue": 86549.31
+        },
+        {
+          "orders__ordered_at__day": "2026-10-27T00:00:00",
+          "gross_revenue": 5577.89,
+          "net_revenue": 3904.52
+        },
+        {
+          "orders__ordered_at__day": "2026-10-26T00:00:00",
+          "gross_revenue": 41451.68,
+          "net_revenue": 41451.68
+        },
+        {
+          "orders__ordered_at__day": "2026-10-25T00:00:00",
+          "gross_revenue": null,
+          "net_revenue": null
+        },
+        {
+          "orders__ordered_at__day": "2026-10-30T00:00:00",
+          "gross_revenue": 108744.33,
+          "net_revenue": 108744.33
+        }
+      ]
+    }
+  },
+  "denials": {
+    "sem_claim": {
+      "rc": 1,
+      "msg": "error: query denied: the user context has no `carteira`, which a row filter requires"
+    },
+    "agente_cnpj": {
+      "rc": 1,
+      "msg": "error: `customers.cnpj` is personal data (LGPD) and never reaches AI agents, neither as a grouping nor as a filter"
+    },
+    "humano_cli_cnpj": {
+      "rc": 0,
+      "note": "mesma consulta fora do canal de agente",
+      "ok": true
+    }
+  },
+  "replay": {
+    "query_id": "q_add8f5a70b94483881d5",
+    "rc": 0,
+    "stdout": "identical: Same model, same SQL and same result.\n  model_hash   same  9481eb99fa17dcda -> 9481eb99fa17dcda\n  sql_hash     same  8e722ed5edbaae4a -> 8e722ed5edbaae4a\n  result_hash  same  eb086f1bbce65280 -> eb086f1bbce65280\n  row_count    same  12 -> 12",
+    "stderr": ""
+  },
+  "replay_dados_alterados": {
+    "query_id": "q_add8f5a70b94483881d5",
+    "rc": 0,
+    "stdout": "data_changed: Same model and SQL; the source data changed.\n  model_hash   same  9481eb99fa17dcda -> 9481eb99fa17dcda\n  sql_hash     same  8e722ed5edbaae4a -> 8e722ed5edbaae4a\n  result_hash  differs  eb086f1bbce65280 -> cd5f534378d056cd\n  row_count    same  12 -> 12"
+  },
+  "equivalencia": {
+    "Q1_clientes_ativos|Varejo": {
+      "match": true,
+      "rows": 1,
+      "mv_first": [
+        [
+          286.0
+        ]
+      ],
+      "cosmos_first": [
+        [
+          286.0
+        ]
+      ]
+    },
+    "Q1_clientes_ativos|Middle": {
+      "match": true,
+      "rows": 1,
+      "mv_first": [
+        [
+          162.0
+        ]
+      ],
+      "cosmos_first": [
+        [
+          162.0
+        ]
+      ]
+    },
+    "Q1_clientes_ativos|Corporate": {
+      "match": true,
+      "rows": 1,
+      "mv_first": [
+        [
+          79.0
+        ]
+      ],
+      "cosmos_first": [
+        [
+          79.0
+        ]
+      ]
+    },
+    "Q2_receitas_por_mes|Varejo": {
+      "match": true,
+      "rows": 12,
+      "mv_first": [
+        [
+          "2025-11-01",
+          659924.44,
+          63892.97,
+          596031.47,
+          3567.159135135135,
+          0.09681861456744958
+        ],
+        [
+          "2025-12-01",
+          825811.76,
+          53353.78,
+          772457.98,
+          3440.8823333333335,
+          0.06460767766252203
+        ]
+      ],
+      "cosmos_first": [
+        [
+          "2025-11-01",
+          659924.44,
+          63892.97,
+          596031.47,
+          3567.159135135135,
+          0.09681861456744958
+        ],
+        [
+          "2025-12-01",
+          825811.76,
+          53353.78,
+          772457.98,
+          3440.8823333333335,
+          0.06460767766252203
+        ]
+      ]
+    },
+    "Q2_receitas_por_mes|Middle": {
+      "match": true,
+      "rows": 12,
+      "mv_first": [
+        [
+          "2025-11-01",
+          1017018.75,
+          26449.49,
+          990569.26,
+          9000.16592920354,
+          0.02600688532045255
+        ],
+        [
+          "2025-12-01",
+          1363414.7,
+          140648.81,
+          1222765.89,
+          11959.778070175438,
+          0.10315922954329303
+        ]
+      ],
+      "cosmos_first": [
+        [
+          "2025-11-01",
+          1017018.75,
+          26449.49,
+          990569.26,
+          9000.16592920354,
+          0.02600688532045255
+        ],
+        [
+          "2025-12-01",
+          1363414.7,
+          140648.81,
+          1222765.89,
+          11959.778070175438,
+          0.10315922954329303
+        ]
+      ]
+    },
+    "Q2_receitas_por_mes|Corporate": {
+      "match": true,
+      "rows": 12,
+      "mv_first": [
+        [
+          "2025-11-01",
+          1491449.74,
+          103197.12,
+          1388252.62,
+          31732.97319148936,
+          0.06919248918170048
+        ],
+        [
+          "2025-12-01",
+          1585060.16,
+          86978.18,
+          1498081.98,
+          23657.614328358206,
+          0.05487374056515306
+        ]
+      ],
+      "cosmos_first": [
+        [
+          "2025-11-01",
+          1491449.74,
+          103197.12,
+          1388252.62,
+          31732.97319148936,
+          0.06919248918170048
+        ],
+        [
+          "2025-12-01",
+          1585060.16,
+          86978.18,
+          1498081.98,
+          23657.614328358206,
+          0.05487374056515306
+        ]
+      ]
+    },
+    "Q3_liquida_30_dias|Varejo": {
+      "match": true,
+      "rows": 1,
+      "mv_first": [
+        [
+          752750.99,
+          790066.34
+        ]
+      ],
+      "cosmos_first": [
+        [
+          752750.99,
+          790066.34
+        ]
+      ]
+    },
+    "Q3_liquida_30_dias|Middle": {
+      "match": true,
+      "rows": 1,
+      "mv_first": [
+        [
+          1207589.31,
+          1249008.77
+        ]
+      ],
+      "cosmos_first": [
+        [
+          1207589.31,
+          1249008.77
+        ]
+      ]
+    },
+    "Q3_liquida_30_dias|Corporate": {
+      "match": true,
+      "rows": 1,
+      "mv_first": [
+        [
+          2028140.9,
+          2259217.15
+        ]
+      ],
+      "cosmos_first": [
+        [
+          2028140.9,
+          2259217.15
+        ]
+      ]
+    },
+    "Q4_ticket_por_regiao|Varejo": {
+      "match": true,
+      "rows": 5,
+      "mv_first": [
+        [
+          "Centro-Oes",
+          3539.5238850174214,
+          0.056888820225634094,
+          574.0
+        ],
+        [
+          "Nordeste",
+          3458.476223776224,
+          0.06121711004543211,
+          572.0
+        ]
+      ],
+      "cosmos_first": [
+        [
+          "Centro-Oes",
+          3539.5238850174214,
+          0.056888820225634094,
+          574.0
+        ],
+        [
+          "Nordeste",
+          3458.476223776224,
+          0.06121711004543211,
+          572.0
+        ]
+      ]
+    },
+    "Q4_ticket_por_regiao|Middle": {
+      "match": true,
+      "rows": 5,
+      "mv_first": [
+        [
+          "Centro-Oes",
+          10850.205347826088,
+          0.08095449269457425,
+          230.0
+        ],
+        [
+          "Nordeste",
+          10894.717287449392,
+          0.0709350362750744,
+          247.0
+        ]
+      ],
+      "cosmos_first": [
+        [
+          "Centro-Oes",
+          10850.205347826088,
+          0.08095449269457425,
+          230.0
+        ],
+        [
+          "Nordeste",
+          10894.717287449392,
+          0.0709350362750744,
+          247.0
+        ]
+      ]
+    },
+    "Q4_ticket_por_regiao|Corporate": {
+      "match": true,
+      "rows": 5,
+      "mv_first": [
+        [
+          "Centro-Oes",
+          28584.859375,
+          0.05137776062611818,
+          160.0
+        ],
+        [
+          "Nordeste",
+          28586.819626865672,
+          0.03581760254020416,
+          134.0
+        ]
+      ],
+      "cosmos_first": [
+        [
+          "Centro-Oes",
+          28584.859375,
+          0.05137776062611818,
+          160.0
+        ],
+        [
+          "Nordeste",
+          28586.819626865672,
+          0.03581760254020416,
+          134.0
+        ]
+      ]
+    },
+    "Q5_liquida_por_dia_7d|Varejo": {
+      "match": true,
+      "rows": 7,
+      "mv_first": [
+        [
+          "2026-10-25",
+          12440.01,
+          12440.01
+        ],
+        [
+          "2026-10-26",
+          20806.39,
+          20806.39
+        ]
+      ],
+      "cosmos_first": [
+        [
+          "2026-10-25",
+          12440.01,
+          12440.01
+        ],
+        [
+          "2026-10-26",
+          20806.39,
+          20806.39
+        ]
+      ]
+    },
+    "Q5_liquida_por_dia_7d|Middle": {
+      "match": true,
+      "rows": 7,
+      "mv_first": [
+        [
+          "2026-10-25",
+          66285.2,
+          61485.2
+        ],
+        [
+          "2026-10-26",
+          74684.28,
+          74684.28
+        ]
+      ],
+      "cosmos_first": [
+        [
+          "2026-10-25",
+          66285.2,
+          61485.2
+        ],
+        [
+          "2026-10-26",
+          74684.28,
+          74684.28
+        ]
+      ]
+    },
+    "Q5_liquida_por_dia_7d|Corporate": {
+      "match": true,
+      "rows": 7,
+      "mv_first": [
+        [
+          "2026-10-25",
+          null,
+          null
+        ],
+        [
+          "2026-10-26",
+          41451.68,
+          41451.68
+        ]
+      ],
+      "cosmos_first": [
+        [
+          "2026-10-25",
+          null,
+          null
+        ],
+        [
+          "2026-10-26",
+          41451.68,
+          41451.68
+        ]
+      ]
+    }
+  }
+}

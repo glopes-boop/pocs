@@ -1,0 +1,308 @@
+{
+  "query_id": "q_bd5a5ea81d914f908bc9",
+  "generated_at": "2026-11-23T15:02:37+00:00",
+  "engine_version": "0.5.0",
+  "model_hash": "9481eb99fa17dcda9899752499e3e3ba071f2b396b05e6d2054c580dd6ababea",
+  "as_of": "2026-10-31",
+  "rules_as_of": "2026-10-31",
+  "timezone": "America/Sao_Paulo",
+  "data_source": {
+    "name": "local",
+    "dialect": "duckdb"
+  },
+  "request": {
+    "metrics": [
+      "gross_revenue",
+      "refunds_completed",
+      "net_revenue",
+      "average_order_value",
+      "refund_rate"
+    ],
+    "dimensions": [
+      "orders.ordered_at__month"
+    ],
+    "as_of": "2026-10-31"
+  },
+  "principal": {
+    "subject": null,
+    "channel": "cli",
+    "user_context": {
+      "carteira": "Varejo"
+    }
+  },
+  "metrics": [
+    {
+      "name": "gross_revenue",
+      "type": "simple",
+      "description": "Receita bruta, soma dos itens de pedidos pagos (paid ou refunded), na data do pedido",
+      "formula": "SUM(order_items.quantity * order_items.unit_price) WHERE {rule.paid_order}",
+      "measures": [
+        {
+          "name": "item_total",
+          "model": "order_items",
+          "table": "poc.order_items",
+          "agg": "sum",
+          "expr": "quantity * unit_price"
+        }
+      ],
+      "concepts": [
+        "gross_revenue"
+      ],
+      "time": null
+    },
+    {
+      "name": "refunds_completed",
+      "type": "simple",
+      "description": "Reembolsos efetivados, atribuídos à data do pedido original",
+      "formula": "SUM(refunds.amount) WHERE {rule.refund_completed}",
+      "measures": [
+        {
+          "name": "refund_value",
+          "model": "refunds",
+          "table": "poc.refunds",
+          "agg": "sum",
+          "expr": "amount"
+        }
+      ],
+      "concepts": [],
+      "time": null
+    },
+    {
+      "name": "net_revenue",
+      "type": "derived",
+      "description": "Receita líquida = bruta menos reembolsos efetivados (na data do pedido original)",
+      "formula": "(SUM(order_items.quantity * order_items.unit_price) WHERE {rule.paid_order}) - COALESCE((SUM(refunds.amount) WHERE {rule.refund_completed}), 0)",
+      "measures": [
+        {
+          "name": "item_total",
+          "model": "order_items",
+          "table": "poc.order_items",
+          "agg": "sum",
+          "expr": "quantity * unit_price"
+        },
+        {
+          "name": "refund_value",
+          "model": "refunds",
+          "table": "poc.refunds",
+          "agg": "sum",
+          "expr": "amount"
+        }
+      ],
+      "concepts": [
+        "net_revenue"
+      ],
+      "time": null
+    },
+    {
+      "name": "average_order_value",
+      "type": "derived",
+      "description": "Ticket médio = receita bruta / pedidos pagos",
+      "formula": "(SUM(order_items.quantity * order_items.unit_price) WHERE {rule.paid_order}) / (COUNT(orders.*) WHERE {rule.paid_order})",
+      "measures": [
+        {
+          "name": "item_total",
+          "model": "order_items",
+          "table": "poc.order_items",
+          "agg": "sum",
+          "expr": "quantity * unit_price"
+        },
+        {
+          "name": "order_count",
+          "model": "orders",
+          "table": "poc.orders",
+          "agg": "count",
+          "expr": null
+        }
+      ],
+      "concepts": [
+        "average_order_value"
+      ],
+      "time": null
+    },
+    {
+      "name": "refund_rate",
+      "type": "derived",
+      "description": "Taxa de reembolso = reembolsos efetivados / receita bruta",
+      "formula": "(SUM(refunds.amount) WHERE {rule.refund_completed}) / (SUM(order_items.quantity * order_items.unit_price) WHERE {rule.paid_order})",
+      "measures": [
+        {
+          "name": "item_total",
+          "model": "order_items",
+          "table": "poc.order_items",
+          "agg": "sum",
+          "expr": "quantity * unit_price"
+        },
+        {
+          "name": "refund_value",
+          "model": "refunds",
+          "table": "poc.refunds",
+          "agg": "sum",
+          "expr": "amount"
+        }
+      ],
+      "concepts": [],
+      "time": null
+    }
+  ],
+  "dimensions": [
+    {
+      "member": "orders.ordered_at__month",
+      "column": "orders__ordered_at__month",
+      "type": "time",
+      "description": "Data do pedido",
+      "rule": null
+    }
+  ],
+  "rules": [
+    {
+      "name": "paid_order",
+      "kind": "predicate",
+      "used_as": [
+        "filter"
+      ],
+      "owner": "controladoria",
+      "effective_from": "2026-01-01",
+      "current_version": true,
+      "versions": 1,
+      "logic": "{status} IN ('paid', 'refunded')",
+      "tests": {
+        "status": "passed",
+        "passed": 4,
+        "total": 4
+      },
+      "concepts": []
+    },
+    {
+      "name": "refund_completed",
+      "kind": "predicate",
+      "used_as": [
+        "filter"
+      ],
+      "owner": "controladoria",
+      "effective_from": "2026-01-01",
+      "current_version": true,
+      "versions": 1,
+      "logic": "{status} = 'completed'",
+      "tests": {
+        "status": "passed",
+        "passed": 2,
+        "total": 2
+      },
+      "concepts": []
+    }
+  ],
+  "metric_filters": [],
+  "policies": {
+    "row_filters": [
+      {
+        "model": "order_items",
+        "name": "por_carteira",
+        "filter": "{customers.carteira} = $user.carteira",
+        "user_fields": {
+          "carteira": "Varejo"
+        },
+        "applied_in": [
+          "order_items_agg"
+        ]
+      },
+      {
+        "model": "orders",
+        "name": "por_carteira",
+        "filter": "{customers.carteira} = $user.carteira",
+        "user_fields": {
+          "carteira": "Varejo"
+        },
+        "applied_in": [
+          "order_items_agg",
+          "refunds_agg",
+          "orders_agg"
+        ]
+      },
+      {
+        "model": "customers",
+        "name": "por_carteira",
+        "filter": "{carteira} = $user.carteira",
+        "user_fields": {
+          "carteira": "Varejo"
+        },
+        "applied_in": [
+          "order_items_agg",
+          "refunds_agg",
+          "orders_agg"
+        ]
+      },
+      {
+        "model": "refunds",
+        "name": "por_carteira",
+        "filter": "{customers.carteira} = $user.carteira",
+        "user_fields": {
+          "carteira": "Varejo"
+        },
+        "applied_in": [
+          "refunds_agg"
+        ]
+      }
+    ],
+    "sensitive_data_blocked_for_agents": false
+  },
+  "lineage": {
+    "models": [
+      "customers",
+      "order_items",
+      "orders",
+      "refunds"
+    ],
+    "joins": [
+      {
+        "from": "order_items",
+        "to": "orders",
+        "entity": "order",
+        "in": "order_items_agg"
+      },
+      {
+        "from": "orders",
+        "to": "customers",
+        "entity": "customer",
+        "in": "order_items_agg"
+      },
+      {
+        "from": "refunds",
+        "to": "orders",
+        "entity": "order",
+        "in": "refunds_agg"
+      },
+      {
+        "from": "orders",
+        "to": "customers",
+        "entity": "customer",
+        "in": "refunds_agg"
+      },
+      {
+        "from": "orders",
+        "to": "customers",
+        "entity": "customer",
+        "in": "orders_agg"
+      }
+    ],
+    "one_to_many": []
+  },
+  "sql": {
+    "text": "WITH order_items_agg AS (\n  SELECT\n    DATE_TRUNC('MONTH', orders.ordered_at) AS orders__ordered_at__month,\n    SUM(\n      CASE\n        WHEN (\n          orders.status\n        ) IN ('paid', 'refunded')\n        THEN order_items.quantity * order_items.unit_price\n      END\n    ) AS item_total__f0\n  FROM poc.order_items AS order_items\n  LEFT JOIN poc.orders AS orders\n    ON order_items.order_id = orders.order_id\n  LEFT JOIN poc.customers AS customers\n    ON orders.customer_id = customers.customer_id\n  WHERE\n    customers.carteira = 'Varejo'\n    AND customers.carteira = 'Varejo'\n    AND customers.carteira = 'Varejo'\n  GROUP BY\n    DATE_TRUNC('MONTH', orders.ordered_at)\n), refunds_agg AS (\n  SELECT\n    DATE_TRUNC('MONTH', orders.ordered_at) AS orders__ordered_at__month,\n    SUM(CASE WHEN (\n      refunds.status\n    ) = 'completed' THEN refunds.amount END) AS refund_value__f0\n  FROM poc.refunds AS refunds\n  LEFT JOIN poc.orders AS orders\n    ON refunds.order_id = orders.order_id\n  LEFT JOIN poc.customers AS customers\n    ON orders.customer_id = customers.customer_id\n  WHERE\n    customers.carteira = 'Varejo'\n    AND customers.carteira = 'Varejo'\n    AND customers.carteira = 'Varejo'\n  GROUP BY\n    DATE_TRUNC('MONTH', orders.ordered_at)\n), orders_agg AS (\n  SELECT\n    DATE_TRUNC('MONTH', orders.ordered_at) AS orders__ordered_at__month,\n    COUNT(CASE WHEN (\n      orders.status\n    ) IN ('paid', 'refunded') THEN 1 END) AS order_count__f0\n  FROM poc.orders AS orders\n  LEFT JOIN poc.customers AS customers\n    ON orders.customer_id = customers.customer_id\n  WHERE\n    customers.carteira = 'Varejo' AND customers.carteira = 'Varejo'\n  GROUP BY\n    DATE_TRUNC('MONTH', orders.ordered_at)\n), dimensions AS (\n  SELECT\n    orders__ordered_at__month\n  FROM order_items_agg\n  UNION\n  SELECT\n    orders__ordered_at__month\n  FROM refunds_agg\n  UNION\n  SELECT\n    orders__ordered_at__month\n  FROM orders_agg\n)\nSELECT\n  dimensions.orders__ordered_at__month AS orders__ordered_at__month,\n  order_items_agg.item_total__f0 AS gross_revenue,\n  refunds_agg.refund_value__f0 AS refunds_completed,\n  (\n    order_items_agg.item_total__f0 - COALESCE(refunds_agg.refund_value__f0, 0)\n  ) AS net_revenue,\n  (\n    CAST(order_items_agg.item_total__f0 AS DOUBLE) / NULLIF(orders_agg.order_count__f0, 0)\n  ) AS average_order_value,\n  (\n    CAST(refunds_agg.refund_value__f0 AS DOUBLE) / NULLIF(order_items_agg.item_total__f0, 0)\n  ) AS refund_rate\nFROM dimensions\nLEFT JOIN order_items_agg\n  ON dimensions.orders__ordered_at__month IS NOT DISTINCT FROM order_items_agg.orders__ordered_at__month\nLEFT JOIN refunds_agg\n  ON dimensions.orders__ordered_at__month IS NOT DISTINCT FROM refunds_agg.orders__ordered_at__month\nLEFT JOIN orders_agg\n  ON dimensions.orders__ordered_at__month IS NOT DISTINCT FROM orders_agg.orders__ordered_at__month",
+    "hash": "8e722ed5edbaae4a37944da8b8be0b84498b12e0049176fd4bd4f7df592d34be"
+  },
+  "result": {
+    "row_count": 12,
+    "columns": [
+      "orders__ordered_at__month",
+      "gross_revenue",
+      "refunds_completed",
+      "net_revenue",
+      "average_order_value",
+      "refund_rate"
+    ],
+    "hash": "eb086f1bbce65280a1d760da3322caec7fc0dddd5afe6f632d95e094831fc32a"
+  },
+  "caveats": [
+    "Replaying this query with the same model hash and as_of returns the same result only if the source data has not changed."
+  ]
+}
