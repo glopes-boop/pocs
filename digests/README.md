@@ -11,6 +11,7 @@ Resumo diário (dias úteis, em pt-BR) de notícias, papers, releases e reposit�
 ## Índice
 
 <!-- INDICE:INICIO -->
+- [2026-11-27](2026/11/2026-11-27.md) — Digest — IA, ML e dados · 27 nov 2026 (sexta)
 - [2026-11-26](2026/11/2026-11-26.md) — Digest — IA, ML e dados · 26 nov 2026 (quinta)
 - [2026-11-25](2026/11/2026-11-25.md) — Digest — IA, ML e dados · 25 nov 2026 (quarta)
 - [2026-11-24](2026/11/2026-11-24.md) — Digest — IA, ML e dados · 24 nov 2026 (terça)
